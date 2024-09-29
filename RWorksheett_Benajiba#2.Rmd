@@ -1,0 +1,181 @@
+---
+title: "worksheet2"
+author: "Dafnie Jayne Benajiba"
+date: "2024-09-27"
+output: html_document
+---
+
+#1
+
+#a 
+
+seq_vector <- -5:5
+seq_vector
+
+#This creates a sequence from -5 to 5, including all the integers in that range.
+
+#b
+
+x <- 1:7
+
+x
+
+
+#2
+
+seq_vector <- seq(1, 3, by=0.2)
+seq_vector
+
+#The seq() function creates a sequence from 1 to 3 with a step size of 0.2.
+
+#3
+
+ages <- c(34, 28, 22, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27, 22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 37, 43, 53, 41, 51, 35, 24, 33, 41, 53, 40, 18, 44, 38, 41, 48, 27, 39, 19, 30, 61, 54, 58, 26, 18)
+
+#a
+
+ages[3]
+
+#b 
+
+ages [c(2, 4)]
+
+#c
+
+ages[-c(4,12)]
+
+#4
+
+x <- c("first"=3, "second"=0, "third"=9)
+names(x)
+
+# a. Access x[c("first", "third")]
+x[c("first", "third")]
+
+#The result is a subset of the vector with the values 3 for "first" and 9 for "third".
+
+#5
+
+#The vector x starts as [-3, -2, -1, 0, 1, 2]. After changing the second element to 0, the final output is [-3, 0, -1, 0, 1, 2].
+
+x <- -3:2
+x[2] <- 0
+x
+
+#6 
+
+#a 
+
+month <- c("Jan", "Feb", "March", "Apr", "May", "June")
+price_per_liter <- c(52.5, 57.25, 60.00, 65.00, 74.25, 54.00)
+purchase_quantity <- c(25, 30, 40, 50, 10, 45)
+
+fuel_data <- data.frame(month, price_per_liter, purchase_quantity)
+fuel_data
+
+#b 
+
+weighted.mean(price_per_liter, purchase_quantity)
+
+#7
+
+
+data <- c(length(rivers), sum(rivers), mean(rivers), median(rivers), var(rivers), sd(rivers), min(rivers), max(rivers))
+print(data)
+
+
+#8
+
+#a
+
+power_ranking <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25)
+celebrity_name <- c("Tom Cruise", "Rolling Stones", "Oprah Winfrey", "U2", "Tiger Woods","Steven Spielberg", "Howard Stern", "50 Cent","Cast of the Sopranos", "Dan Brown", "Bruce Springsteen","Donald Trump", "Muhammad Ali", "Paul McCartney", "George Lucas","Elton John", "David Letterman", "Phil Mickelson", "J.K. Rowling","Brad Pitt", "Peter Jackson", "Dr. Phil McGraw", "Jay Leno","Celine Dion", "Kobe Bryant")
+pay <- c(67, 90, 225, 110, 90, 332, 302, 41, 52, 88, 55, 44, 55, 40, 233, 34, 40, 47, 75, 25, 39, 45, 32, 40, 31)
+print(power_ranking)
+print(celebrity_name)
+print(pay)
+
+
+#b
+celebrity_data <- data.frame(PowerRanking = power_ranking, CelebrityName = celebrity_name, Pay = pay)
+write.csv(celebrity_data, "PowerRanking.csv", row.names = FALSE)
+imported_data <- read.csv("PowerRanking.csv")
+print(imported_data)
+
+#c
+
+celebrity_data <- data.frame(PowerRanking = power_ranking, CelebrityName = celebrity_name, Pay = pay)
+write.csv(celebrity_data, "PowerRanking.csv", row.names = FALSE)
+imported_data <- read.csv("PowerRanking.csv")
+print(imported_data)
+
+#d 
+
+subset_data <- imported_data[10:20, ]
+save(subset_data, file = "Ranks.RData")
+print(subset_data)
+save(subset_data, file = "Ranks.RData")
+print(subset_data)
+
+#9.a
+
+# Install the necessary library
+install.packages("readxl")
+library(readxl)
+
+hotels_vienna <- read_excel("~/RBasics/CS101_DataScience/worksheet2/hotels-vienna.xlsx")
+
+hotels_vienna
+
+#9.b
+
+dataset_dimensions <- dim(hotels_vienna)
+dataset_dimensions
+
+#9.c
+
+selected_data <- hotels_vienna[, c("country", "neighbourhood", "price", "stars", "accommodation_type", "rating")]
+selected_data
+
+#9.d
+
+save(selected_data, file = "new.RData")
+
+#9.e
+
+load("new.RData")
+head(selected_data)
+tail(selected_data)
+
+# 10.a
+vegetables <- list(
+  "Carrot",
+  "Cabbage",
+  "Pechay",
+  "Okra",
+  "Potato",
+  "Daikon/Radish",
+  "Bitter Gourd",
+  "Cucumber",
+  "Moringa/Malunggay",
+  "Eggplant"
+)
+vegetables
+
+# 10.b
+vegetables <- append(vegetables, list("Squash", "Tomato"))
+vegetables
+
+# 10.c
+new_vegetables <- list("Water spinach", "Green Bean", "Broccoli", "Sponge gourd")
+vegetables <- append(vegetables, new_vegetables, after = 5)
+vegetables
+
+num_datapoints <- length(vegetables)
+num_datapoints
+
+# 10.d
+vegetables <- vegetables[-c(5, 10, 15)]
+vegetables
+num_remaining_vegetables <- length(vegetables)
+num_remaining_vegetables
