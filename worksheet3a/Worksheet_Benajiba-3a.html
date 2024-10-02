@@ -11,9 +11,9 @@
 
 <meta name="author" content="Dafnie Jayne Benajiba" />
 
-<meta name="date" content="2024-09-27" />
+<meta name="date" content="2024-10-01" />
 
-<title>worksheet2</title>
+<title>worrksheet3a</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -350,128 +350,154 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">worksheet2</h1>
+<h1 class="title toc-ignore">worrksheet3a</h1>
 <h4 class="author">Dafnie Jayne Benajiba</h4>
-<h4 class="date">2024-09-27</h4>
+<h4 class="date">2024-10-01</h4>
 
 </div>
 
 
-<p>#1</p>
-<p>#a</p>
-<p>seq_vector &lt;- -5:5 seq_vector</p>
-<p>#This creates a sequence from -5 to 5, including all the integers in
-that range.</p>
-<p>#b</p>
-<p>x &lt;- 1:7</p>
-<p>x</p>
+<p>#Using Vectors #1</p>
+<pre class="r"><code>first_11_letters &lt;- LETTERS[1:11]
+print(first_11_letters)</code></pre>
+<pre><code>##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot;</code></pre>
+<pre class="r"><code>odd_letters &lt;- LETTERS[seq(1, 26, by=2)]
+print(odd_letters)</code></pre>
+<pre><code>##  [1] &quot;A&quot; &quot;C&quot; &quot;E&quot; &quot;G&quot; &quot;I&quot; &quot;K&quot; &quot;M&quot; &quot;O&quot; &quot;Q&quot; &quot;S&quot; &quot;U&quot; &quot;W&quot; &quot;Y&quot;</code></pre>
+<pre class="r"><code>vowels &lt;- LETTERS[c(1, 5, 9, 15, 21)]  # A, E, I, O, U
+print(vowels)</code></pre>
+<pre><code>## [1] &quot;A&quot; &quot;E&quot; &quot;I&quot; &quot;O&quot; &quot;U&quot;</code></pre>
+<pre class="r"><code>last_5_letters &lt;- letters[22:26]
+print(last_5_letters)</code></pre>
+<pre><code>## [1] &quot;v&quot; &quot;w&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot;</code></pre>
+<pre class="r"><code>lower_15_24 &lt;- letters[15:24]
+print(lower_15_24)</code></pre>
+<pre><code>##  [1] &quot;o&quot; &quot;p&quot; &quot;q&quot; &quot;r&quot; &quot;s&quot; &quot;t&quot; &quot;u&quot; &quot;v&quot; &quot;w&quot; &quot;x&quot;</code></pre>
 <p>#2</p>
-<p>seq_vector &lt;- seq(1, 3, by=0.2) seq_vector</p>
-<p>#The seq() function creates a sequence from 1 to 3 with a step size
-of 0.2.</p>
-<p>#3</p>
-<p>ages &lt;- c(34, 28, 22, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27, 22,
-37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 37, 43, 53, 41, 51, 35, 24,
-33, 41, 53, 40, 18, 44, 38, 41, 48, 27, 39, 19, 30, 61, 54, 58, 26,
-18)</p>
-<p>#a</p>
-<p>ages[3]</p>
-<p>#b</p>
-<p>ages [c(2, 4)]</p>
-<p>#c</p>
-<p>ages[-c(4,12)]</p>
-<p>#4</p>
-<p>x &lt;- c(“first”=3, “second”=0, “third”=9) names(x)</p>
-<div id="a.-access-xcfirst-third" class="section level1">
-<h1>a. Access x[c(“first”, “third”)]</h1>
-<p>x[c(“first”, “third”)]</p>
-<p>#The result is a subset of the vector with the values 3 for “first”
-and 9 for “third”.</p>
-<p>#5</p>
-<p>#The vector x starts as [-3, -2, -1, 0, 1, 2]. After changing the
-second element to 0, the final output is [-3, 0, -1, 0, 1, 2].</p>
-<p>x &lt;- -3:2 x[2] &lt;- 0 x</p>
-<p>#6</p>
-<p>#a</p>
-<p>month &lt;- c(“Jan”, “Feb”, “March”, “Apr”, “May”, “June”)
-price_per_liter &lt;- c(52.5, 57.25, 60.00, 65.00, 74.25, 54.00)
-purchase_quantity &lt;- c(25, 30, 40, 50, 10, 45)</p>
-<p>fuel_data &lt;- data.frame(month, price_per_liter, purchase_quantity)
-fuel_data</p>
-<p>#b</p>
-<p>weighted.mean(price_per_liter, purchase_quantity)</p>
-<p>#7</p>
-<p>data &lt;- c(length(rivers), sum(rivers), mean(rivers),
-median(rivers), var(rivers), sd(rivers), min(rivers), max(rivers))
-print(data)</p>
-<p>#8</p>
-<p>#a</p>
-<p>power_ranking &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,14,
-15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25) celebrity_name &lt;- c(“Tom
-Cruise”, “Rolling Stones”, “Oprah Winfrey”, “U2”, “Tiger Woods”,“Steven
-Spielberg”, “Howard Stern”, “50 Cent”,“Cast of the Sopranos”, “Dan
-Brown”, “Bruce Springsteen”,“Donald Trump”, “Muhammad Ali”, “Paul
-McCartney”, “George Lucas”,“Elton John”, “David Letterman”, “Phil
-Mickelson”, “J.K. Rowling”,“Brad Pitt”, “Peter Jackson”, “Dr. Phil
-McGraw”, “Jay Leno”,“Celine Dion”, “Kobe Bryant”) pay &lt;- c(67, 90,
-225, 110, 90, 332, 302, 41, 52, 88, 55, 44, 55, 40, 233, 34, 40, 47, 75,
-25, 39, 45, 32, 40, 31) print(power_ranking) print(celebrity_name)
-print(pay)</p>
-<p>#b celebrity_data &lt;- data.frame(PowerRanking = power_ranking,
-CelebrityName = celebrity_name, Pay = pay) write.csv(celebrity_data,
-“PowerRanking.csv”, row.names = FALSE) imported_data &lt;-
-read.csv(“PowerRanking.csv”) print(imported_data)</p>
-<p>#c</p>
-<p>celebrity_data &lt;- data.frame(PowerRanking = power_ranking,
-CelebrityName = celebrity_name, Pay = pay) write.csv(celebrity_data,
-“PowerRanking.csv”, row.names = FALSE) imported_data &lt;-
-read.csv(“PowerRanking.csv”) print(imported_data)</p>
-<p>#d</p>
-<p>subset_data &lt;- imported_data[10:20, ] save(subset_data, file =
-“Ranks.RData”) print(subset_data) save(subset_data, file =
-“Ranks.RData”) print(subset_data)</p>
-<p>#9.a</p>
-</div>
-<div id="install-the-necessary-library" class="section level1">
-<h1>Install the necessary library</h1>
-<p>install.packages(“readxl”) library(readxl)</p>
-<p>hotels_vienna &lt;-
-read_excel(“~/RBasics/CS101_DataScience/worksheet2/hotels-vienna.xlsx”)</p>
-<p>hotels_vienna</p>
-<p>#9.b</p>
-<p>dataset_dimensions &lt;- dim(hotels_vienna) dataset_dimensions</p>
-<p>#9.c</p>
-<p>selected_data &lt;- hotels_vienna[, c(“country”, “neighbourhood”,
-“price”, “stars”, “accommodation_type”, “rating”)] selected_data</p>
-<p>#9.d</p>
-<p>save(selected_data, file = “new.RData”)</p>
-<p>#9.e</p>
-<p>load(“new.RData”) head(selected_data) tail(selected_data)</p>
-</div>
-<div id="a" class="section level1">
-<h1>10.a</h1>
-<p>vegetables &lt;- list( “Carrot”, “Cabbage”, “Pechay”, “Okra”,
-“Potato”, “Daikon/Radish”, “Bitter Gourd”, “Cucumber”,
-“Moringa/Malunggay”, “Eggplant” ) vegetables</p>
-</div>
-<div id="b" class="section level1">
-<h1>10.b</h1>
-<p>vegetables &lt;- append(vegetables, list(“Squash”, “Tomato”))
-vegetables</p>
-</div>
-<div id="c" class="section level1">
-<h1>10.c</h1>
-<p>new_vegetables &lt;- list(“Water spinach”, “Green Bean”, “Broccoli”,
-“Sponge gourd”) vegetables &lt;- append(vegetables, new_vegetables,
-after = 5) vegetables</p>
-<p>num_datapoints &lt;- length(vegetables) num_datapoints</p>
-</div>
-<div id="d" class="section level1">
-<h1>10.d</h1>
-<p>vegetables &lt;- vegetables[-c(5, 10, 15)] vegetables
-num_remaining_vegetables &lt;- length(vegetables)
-num_remaining_vegetables</p>
-</div>
+<pre class="r"><code>city &lt;- c(&quot;Tuguegarao City&quot;, &quot;Manila&quot;, &quot;Iloilo City&quot;, &quot;Tacloban&quot;, &quot;Samal Island&quot;, &quot;Davao City&quot;)
+print(city)</code></pre>
+<pre><code>## [1] &quot;Tuguegarao City&quot; &quot;Manila&quot;          &quot;Iloilo City&quot;     &quot;Tacloban&quot;       
+## [5] &quot;Samal Island&quot;    &quot;Davao City&quot;</code></pre>
+<pre class="r"><code>temp &lt;- c(42, 39, 34, 34, 30, 27)
+print(temp)</code></pre>
+<pre><code>## [1] 42 39 34 34 30 27</code></pre>
+<pre class="r"><code>city_temp_df &lt;- data.frame(City = city, Temperature = temp)
+print(city_temp_df)</code></pre>
+<pre><code>##              City Temperature
+## 1 Tuguegarao City          42
+## 2          Manila          39
+## 3     Iloilo City          34
+## 4        Tacloban          34
+## 5    Samal Island          30
+## 6      Davao City          27</code></pre>
+<pre class="r"><code>names(city_temp_df) &lt;- c(&quot;City&quot;, &quot;Temperature&quot;)
+print(city_temp_df)</code></pre>
+<pre><code>##              City Temperature
+## 1 Tuguegarao City          42
+## 2          Manila          39
+## 3     Iloilo City          34
+## 4        Tacloban          34
+## 5    Samal Island          30
+## 6      Davao City          27</code></pre>
+<pre class="r"><code>str(city_temp_df)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    6 obs. of  2 variables:
+##  $ City       : chr  &quot;Tuguegarao City&quot; &quot;Manila&quot; &quot;Iloilo City&quot; &quot;Tacloban&quot; ...
+##  $ Temperature: num  42 39 34 34 30 27</code></pre>
+<pre class="r"><code>row_3_4 &lt;- city_temp_df[3:4, ]
+print(row_3_4)</code></pre>
+<pre><code>##          City Temperature
+## 3 Iloilo City          34
+## 4    Tacloban          34</code></pre>
+<pre class="r"><code>max_temp_city &lt;- city_temp_df[which.max(city_temp_df$Temperature), &quot;City&quot;]
+min_temp_city &lt;- city_temp_df[which.min(city_temp_df$Temperature), &quot;City&quot;]
+print(max_temp_city)</code></pre>
+<pre><code>## [1] &quot;Tuguegarao City&quot;</code></pre>
+<pre class="r"><code>print(min_temp_city)</code></pre>
+<pre><code>## [1] &quot;Davao City&quot;</code></pre>
+<p>#Using Matrices</p>
+<pre class="r"><code>matrix_data &lt;- matrix(c(1:8, 11:14), nrow=3, ncol=4)
+print(matrix_data)</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]    1    4    7   12
+## [2,]    2    5    8   13
+## [3,]    3    6   11   14</code></pre>
+<pre class="r"><code>matrix_multiplied &lt;- matrix_data * 2
+print(matrix_multiplied)</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]    2    8   14   24
+## [2,]    4   10   16   26
+## [3,]    6   12   22   28</code></pre>
+<pre class="r"><code>row_2 &lt;- matrix_data[2, ]
+print(row_2)</code></pre>
+<pre><code>## [1]  2  5  8 13</code></pre>
+<pre class="r"><code>col_3_4 &lt;- matrix_data[1:2, 3:4]
+print(col_3_4)</code></pre>
+<pre><code>##      [,1] [,2]
+## [1,]    7   12
+## [2,]    8   13</code></pre>
+<pre class="r"><code>col_2_3_row_3 &lt;- matrix_data[3, 2:3]
+print(col_2_3_row_3)</code></pre>
+<pre><code>## [1]  6 11</code></pre>
+<pre class="r"><code>col_4 &lt;- matrix_data[, 4]
+print(col_4)</code></pre>
+<pre><code>## [1] 12 13 14</code></pre>
+<pre class="r"><code>rownames(matrix_multiplied) &lt;- c(&quot;isa&quot;, &quot;dalawa&quot;, &quot;tatlo&quot;)
+colnames(matrix_multiplied) &lt;- c(&quot;uno&quot;, &quot;dos&quot;, &quot;tres&quot;, &quot;quatro&quot;)
+print(matrix_multiplied)</code></pre>
+<pre><code>##        uno dos tres quatro
+## isa      2   8   14     24
+## dalawa   4  10   16     26
+## tatlo    6  12   22     28</code></pre>
+<pre class="r"><code>dim(matrix_data) &lt;- c(6, 2)
+print(matrix_data)</code></pre>
+<pre><code>##      [,1] [,2]
+## [1,]    1    7
+## [2,]    2    8
+## [3,]    3   11
+## [4,]    4   12
+## [5,]    5   13
+## [6,]    6   14</code></pre>
+<p>#Using Arrays</p>
+<pre class="r"><code>array_data &lt;- array(rep(c(1, 2, 3, 6, 7, 8, 9, 0, 3, 4, 5, 1), 2), dim = c(2, 4, 3))
+print(array_data)</code></pre>
+<pre><code>## , , 1
+## 
+##      [,1] [,2] [,3] [,4]
+## [1,]    1    3    7    9
+## [2,]    2    6    8    0
+## 
+## , , 2
+## 
+##      [,1] [,2] [,3] [,4]
+## [1,]    3    5    1    3
+## [2,]    4    1    2    6
+## 
+## , , 3
+## 
+##      [,1] [,2] [,3] [,4]
+## [1,]    7    9    3    5
+## [2,]    8    0    4    1</code></pre>
+<pre class="r"><code>print(dim(array_data))</code></pre>
+<pre><code>## [1] 2 4 3</code></pre>
+<pre class="r"><code>dimnames(array_data) &lt;- list(c(&quot;a&quot;, &quot;b&quot;), c(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;), c(&quot;1st-Dimensional Array&quot;, &quot;2nd-Dimensional Array&quot;, &quot;3rd-Dimensional Array&quot;))
+print(array_data)</code></pre>
+<pre><code>## , , 1st-Dimensional Array
+## 
+##   A B C D
+## a 1 3 7 9
+## b 2 6 8 0
+## 
+## , , 2nd-Dimensional Array
+## 
+##   A B C D
+## a 3 5 1 3
+## b 4 1 2 6
+## 
+## , , 3rd-Dimensional Array
+## 
+##   A B C D
+## a 7 9 3 5
+## b 8 0 4 1</code></pre>
 
 
 

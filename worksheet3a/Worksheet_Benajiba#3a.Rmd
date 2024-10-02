@@ -1,0 +1,164 @@
+---
+title: "worrksheet3a"
+author: "Dafnie Jayne Benajiba"
+date: "`r Sys.Date()`"
+output: html_document
+---
+#Using Vectors
+#1
+```{r}
+first_11_letters <- LETTERS[1:11]
+print(first_11_letters)
+
+```
+
+```{r}
+odd_letters <- LETTERS[seq(1, 26, by=2)]
+print(odd_letters)
+
+
+```
+
+```{r}
+vowels <- LETTERS[c(1, 5, 9, 15, 21)]  # A, E, I, O, U
+print(vowels)
+
+```
+
+```{r}
+last_5_letters <- letters[22:26]
+print(last_5_letters)
+
+```
+
+```{r}
+lower_15_24 <- letters[15:24]
+print(lower_15_24)
+
+```
+
+#2
+```{r}
+city <- c("Tuguegarao City", "Manila", "Iloilo City", "Tacloban", "Samal Island", "Davao City")
+print(city)
+
+```
+
+```{r}
+temp <- c(42, 39, 34, 34, 30, 27)
+print(temp)
+
+```
+
+```{r}
+city_temp_df <- data.frame(City = city, Temperature = temp)
+print(city_temp_df)
+
+```
+
+```{r}
+names(city_temp_df) <- c("City", "Temperature")
+print(city_temp_df)
+
+```
+
+```{r}
+str(city_temp_df)
+
+```
+
+```{r}
+row_3_4 <- city_temp_df[3:4, ]
+print(row_3_4)
+
+```
+
+```{r}
+max_temp_city <- city_temp_df[which.max(city_temp_df$Temperature), "City"]
+min_temp_city <- city_temp_df[which.min(city_temp_df$Temperature), "City"]
+print(max_temp_city)
+print(min_temp_city)
+
+```
+
+
+#Using Matrices
+```{r}
+matrix_data <- matrix(c(1:8, 11:14), nrow=3, ncol=4)
+print(matrix_data)
+
+```
+
+```{r}
+matrix_multiplied <- matrix_data * 2
+print(matrix_multiplied)
+
+```
+
+```{r}
+row_2 <- matrix_data[2, ]
+print(row_2)
+
+```
+
+```{r}
+col_3_4 <- matrix_data[1:2, 3:4]
+print(col_3_4)
+
+```
+
+```{r}
+col_2_3_row_3 <- matrix_data[3, 2:3]
+print(col_2_3_row_3)
+
+```
+
+```{r}
+col_4 <- matrix_data[, 4]
+print(col_4)
+
+```
+
+```{r}
+rownames(matrix_multiplied) <- c("isa", "dalawa", "tatlo")
+colnames(matrix_multiplied) <- c("uno", "dos", "tres", "quatro")
+print(matrix_multiplied)
+
+
+```
+
+```{r}
+dim(matrix_data) <- c(6, 2)
+print(matrix_data)
+
+```
+
+#Using Arrays
+
+```{r}
+array_data <- array(rep(c(1, 2, 3, 6, 7, 8, 9, 0, 3, 4, 5, 1), 2), dim = c(2, 4, 3))
+print(array_data)
+
+```
+
+```{r}
+print(dim(array_data))
+
+```
+
+```{r}
+dimnames(array_data) <- list(c("a", "b"), c("A", "B", "C", "D"), c("1st-Dimensional Array", "2nd-Dimensional Array", "3rd-Dimensional Array"))
+print(array_data)
+
+```
+
+
+
+
+
+
+
+
+
+
+
