@@ -1,0 +1,191 @@
+---
+title: "worksheet#4"
+author: "Dafnie Jayne Benajiba"
+date: "2024-10-29"
+output: pdf_document
+---
+1.
+```{r}
+vectorA <- c(1, 2, 3, 4, 5)
+
+matrix_result <- matrix(0, nrow = 5, ncol = 5)
+
+for (i in 0:4) {
+  for (j in 0:4) {
+    matrix_result[i + 1, j + 1] <- abs(i - j)
+  }
+}
+
+print(matrix_result)
+
+
+```
+
+2.
+```{r}
+for (i in 1:5) {
+  output <- paste(rep('"*"', i), collapse = " ")
+  cat(output, "\n")
+}
+
+```
+
+
+4-A.
+```{r}
+data <- read.csv("~/RBasics/CS101_DataScience/worksheet4b/Shoesize.csv")
+head(data)
+
+
+```
+4-B
+```{r}
+males <- subset(data, Gender == 'M')
+females <- subset(data, Gender == 'F')
+nrow(males)
+nrow(females)
+
+
+```
+4-C
+```{r}
+household_data <- data.frame(
+  gender = c("Male", "Female", "Male", "Female", "Male", "Female", "Male", "Female", "Female")
+)
+
+gender_counts <- table(household_data$gender)
+
+barplot(
+  gender_counts, 
+  main = "Number of Males and Females in Household Data", 
+  col = c("blue", "pink"), 
+  legend = rownames(gender_counts), 
+  xlab = "Gender", 
+  ylab = "Count"
+)
+
+
+```
+5.
+```{r}
+expenses <- c(60, 10, 5, 25)
+labels <- c("Food", "Electricity", "Savings", "Miscellaneous")
+pie(expenses, labels = labels, main = "Dela Cruz Family Expenses", col=rainbow(length(expenses)))
+
+```
+6-A
+```{r}
+str(iris)
+
+```
+6-B
+```{r}
+mean_values <- colMeans(iris[,1:4])
+print(mean_values)
+
+
+```
+6-C
+```{r}
+species_counts <- table(iris$Species)
+pie(species_counts, main="Species Distribution", col=rainbow(3), labels=c("Setosa", "Versicolor", "Virginica"))
+
+
+```
+6-D
+```{r}
+setosa <- subset(iris, Species == "setosa")
+versicolor <- subset(iris, Species == "versicolor")
+virginica <- subset(iris, Species == "virginica")
+tail(setosa)
+tail(versicolor)
+tail(virginica)
+
+
+```
+6-E
+```{r}
+plot(iris$Sepal.Length, iris$Sepal.Width, col=iris$Species, pch=19, main="Iris Dataset", xlab="Sepal Length", ylab="Sepal Width")
+
+
+
+```
+6-F
+The scatterplot shows clear separation of setosa due to its shorter sepal length and wider width, while versicolor and virginica overlap, making them harder to distinguish. Setosa is the most distinct, with more variability seen between versicolor and virginica.
+
+7. A
+
+```{r}
+
+library(readxl)
+data <- read_excel("~/RBasics/CS101_DataScience/worksheet4b/alexa_file.xlsx")
+
+data$variation <- gsub("Black  Dot", "Black Dot", data$variation)
+data$variation <- gsub("White  Plus", "White Plus", data$variation)
+
+head(data$variation)
+```
+7-B
+```{r}
+library(dplyr)
+variation_count <- data %>%
+  count(variation)
+save(variation_count, file = "variations.RData")
+print(variation_count)
+
+```
+7b.
+```{r}
+library(dplyr)
+load("variations.RData")
+
+barplot(variation_count$n, names.arg = variation_count$variation, col = "purple",
+        main = "Variation Count", xlab = "Variation", ylab = "Count", las = 2)
+
+```
+7
+```{r}
+library(readxl)
+
+library(dplyr)
+
+alexa_file <- "~/RBasics/CS101_DataScience/worksheet4b/alexa_file.xlsx"
+data <- read_excel(alexa_file)
+
+data$variation <- gsub("Black  Dot", "Black Dot", data$variation)
+data$variation <- gsub("Black  Plus", "Black Plus", data$variation)
+data$variation <- gsub("Black  Show", "Black Show", data$variation)
+data$variation <- gsub("Black  Spot", "Black Spot", data$variation)
+data$variation <- gsub("White  Dot", "White Dot", data$variation)
+data$variation <- gsub("White  Plus", "White Plus", data$variation)
+data$variation <- gsub("White  Show", "White Show", data$variation)
+data$variation <- gsub("White  Spot", "White Spot", data$variation)
+
+black_white_data <- data %>%
+  filter(grepl("Black|White", variation))
+
+variation_count <- black_white_data %>%
+  count(variation)
+
+black_variations <- variation_count %>% filter(grepl("Black", variation))
+white_variations <- variation_count %>% filter(grepl("White", variation))
+
+black_counts <- setNames(black_variations$n, gsub("Black ", "", black_variations$variation))
+white_counts <- setNames(white_variations$n, gsub("White ", "", white_variations$variation))
+
+common_variations <- c("Dot", "Plus", "Show", "Spot")
+
+black_counts <- black_counts[common_variations]
+black_counts[is.na(black_counts)] <- 0
+
+white_counts <- white_counts[common_variations]
+white_counts[is.na(white_counts)] <- 0
+
+barplot_matrix <- rbind(black_counts, white_counts)
+
+barplot(barplot_matrix, beside = TRUE, col = c("yellow", "pink"),
+        main = "Count of Black and White Variations",
+        xlab = "Variation Type", ylab = "Count",
+        legend = rownames(barplot_matrix), args.legend = list(x = "topright"))
+
+```

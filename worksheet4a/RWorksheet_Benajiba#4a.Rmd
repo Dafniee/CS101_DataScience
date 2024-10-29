@@ -5,7 +5,7 @@ date: "2024-10-15"
 output: pdf_document
 ---
 
-#b.
+#1A
 ```{r}
 data <- data.frame(
   Shoe_Size = c(6.5, 9.0, 8.5, 8.5, 10.5, 7.0, 9.5, 9.0, 13.0, 7.5, 10.5, 8.5, 12.0, 10.5, 13.0, 11.5, 8.5, 5.0, 10.0, 6.5, 7.5, 8.5, 10.5, 8.5, 10.5, 11.0, 9.0, 13.0),
@@ -16,6 +16,7 @@ data
 
 ```
 
+#1-B
 ```{r}
 
 females <- subset(data, Gender == "F", select = c(Shoe_Size, Height))
@@ -27,7 +28,7 @@ males
 
 ```
 
-#C. 
+#1-C 
 ```{r}
 mean_shoe_size <- mean(data$Shoe_Size)
 mean_shoe_size
@@ -39,22 +40,15 @@ mean_height
 
 #2. 
 ```{r}
-months<- c("March", "April", "January", "November", "January", "September", 
-                   "October", "September", "November", "August", "January", "November", 
-                   "November", "February", "May", "August", "July", "December", "August", 
-                   "August", "September", "November", "February", "April")
-
-factor_months <- factor(months)
-factor_months
-levels(factor_months)
-
+Months <- c("March", "April", "JAnuary", "November", "January", "September", "October", "September", "November", "August", "January", "November", "November", "Febraury", "May", "Augsut")
+factor_Months <- factor(Months)
+factor_Months
 ```
 
 #3
 ```{r}
-summary(months)
-
-summary(factor_months)
+summary(Months)
+summary(factor_Months)
 
 
 ```
@@ -82,3 +76,115 @@ head(data)
 
 ```
 
+#6
+
+```{r}
+snack_price <- readline(prompt = "Enter the price of the snack (must be divisible by 50): ")
+snack_price <- as.integer(snack_price)
+
+if (is.na(snack_price)) {
+  cat("Invalid input. Please enter a numeric value.\n")
+} else {
+  minimum_bills <- function(price) {
+    bills <- c(1000, 500, 200, 100, 50)
+    count <- 0
+    
+    for (bill in bills) {
+      if (price >= bill) {
+        count <- count + (price %/% bill)
+        price <- price %% bill
+      }
+    }
+    
+    return(count)
+  }
+  
+  cat("Minimum number of bills needed:", minimum_bills(snack_price), "\n")
+}
+
+
+```
+#7
+```{r}
+snack_price <- readline(prompt = "Enter the price of the snack (must be divisible by 50): ")
+snack_price <- as.integer(snack_price)
+
+if (is.na(snack_price) || snack_price %% 50 != 0) {
+  cat("Invalid input. Please enter a numeric value that is divisible by 50.\n")
+} else {
+  minimum_bills <- function(price) {
+    bills <- c(1000, 500, 200, 100, 50)
+    count <- 0
+    
+    for (bill in bills) {
+      if (price >= bill) {
+        count <- count + (price %/% bill)
+        price <- price %% bill
+      }
+    }
+    
+    return(count)
+  }
+  
+  cat("Minimum number of bills needed:", minimum_bills(snack_price), "\n")
+}
+
+```
+
+#8.a
+```{r}
+data <- data.frame(
+  Name = c("Annie", " Thea", "Steve", "Hanna"),
+  Grade1 = c(85, 75, 75, 95),
+  Grade2 = c(65, 75, 55, 75),
+  Grade3 = c(85, 90, 80, 100),
+  Grade4 = c(100, 90, 85, 90))
+data
+
+
+```
+
+#8.B
+```{r}
+for (i in 1:nrow(data)) {
+  avg_score <- sum(data[i, 2:5]) / 4  
+  
+  if (avg_score >= 88.75) {
+    cat(data$Name[i], "'s average grade this semester is", avg_score, "\n")
+  }
+}
+
+```
+#8.C
+```{r}
+for (i in 1:nrow(data)) {
+  avg_score <- sum(data[i, 2:5]) / 4  
+  
+  if (avg_score >= 88.75) {
+    cat(data$Name[i], "'s average grade this semester is", avg_score, "\n")
+  }
+}
+
+```
+#8.D
+```{r}
+results <- c()
+
+for (i in 1:nrow(data)) {
+  highest_score <- 0  
+  
+  for (j in 2:ncol(data)) {
+    if (data[i, j] > highest_score) {
+      highest_score <- data[i, j]  
+    }
+  }
+  
+  if (highest_score > 90) {
+    results <- c(results, paste(data$Name[i], "’s highest grade this semester is", highest_score))
+  }
+}
+
+cat(results, "\n")
+
+
+```
